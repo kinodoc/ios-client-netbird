@@ -17,10 +17,9 @@ struct AboutView: View {
                 HStack {
                     Spacer()
                     VStack(spacing: 12) {
-                        Image("netbird-logo-menu")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 120)
+                        Text("Concept")
+                            .font(.system(size: 30, weight: .bold, design: .rounded))
+                            .foregroundColor(.accentColor)
                         VStack(spacing: 4) {
                             Text("Version \(appVersion)")
                                 .font(.subheadline)
@@ -64,15 +63,9 @@ struct AboutView: View {
             }
 
             Section {
-                Button("Join Beta Program") {
-                    viewModel.showBetaProgramAlert = true
-                }
-            }
-
-            Section {
                 HStack {
                     Spacer()
-                    Text("\u{00A9} \(String(Calendar.current.component(.year, from: Date()))) NetBird all rights reserved")
+                    Text("\u{00A9} \(String(Calendar.current.component(.year, from: Date()))) NetBird open-source project attribution")
                         .font(.footnote)
                         .foregroundColor(Color("TextSecondary"))
                     Spacer()
