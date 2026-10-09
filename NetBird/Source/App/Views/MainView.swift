@@ -193,7 +193,7 @@ struct iOSMainView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-                .tag(3)
+                .tag(2)
             }
             .onChange(of: viewModel.navigateToServerView) { newValue in
                 if newValue {
