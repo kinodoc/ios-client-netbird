@@ -139,7 +139,7 @@ struct iOSMainView: View {
                         viewModel.connectWithOnDemandDisabled()
                     },
                     secondaryButton: .cancel(Text("Edit Rules")) {
-                        selectedTab = 3 // Switch to Settings tab
+                        selectedTab = 2 // Switch to Settings tab
                     }
                 )
             case .settingsRejected:
@@ -175,15 +175,6 @@ struct iOSMainView: View {
                 }
                 .tag(0)
 
-                NavigationView {
-                    iOSPeersView()
-                }
-                .navigationViewStyle(StackNavigationViewStyle())
-                .tabItem {
-                    Label("Peers", systemImage: "person.3.fill")
-                }
-                .tag(1)
-
                 if !viewModel.mdmRestrictions.features.disableNetworks {
                     NavigationView {
                         iOSNetworksView()
@@ -192,7 +183,7 @@ struct iOSMainView: View {
                     .tabItem {
                         Label("Resources", systemImage: "globe")
                     }
-                    .tag(2)
+                    .tag(1)
                 }
 
                 NavigationView {
@@ -228,10 +219,10 @@ struct iOSMainView: View {
                 if show { activeAlert = .onDemandDisconnect; viewModel.showOnDemandDisconnectAlert = false }
             }
             .onChange(of: viewModel.mdmRestrictions.features.disableNetworks) { hidden in
-                // Removing the tab tagged 2 while it is selected leaves the
+                // Removing the Resources tab while it is selected leaves the
                 // TabView with a selection no tab matches, and the screen goes
-                // blank. Move off it first.
-                if hidden && selectedTab == 2 {
+                // blank. Move back to Connection first.
+                if hidden && selectedTab == 1 {
                     selectedTab = 0
                 }
             }
