@@ -56,7 +56,7 @@ struct FirstLaunchView: View {
 
     private var serverPickerText: some View {
         let attributed: AttributedString = {
-            let fullText = "By default you will connect to NetBird's cloud servers. Visit the Change server menu to use another server."
+            let fullText = "By default, you will connect to the service's cloud servers. Use Change server to choose another server."
             var result = AttributedString(fullText)
             result.font = .system(size: 17)
             result.foregroundColor = Color("TextPrimary")
