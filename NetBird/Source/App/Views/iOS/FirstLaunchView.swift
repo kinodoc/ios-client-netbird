@@ -24,10 +24,10 @@ struct FirstLaunchView: View {
             VStack(spacing: 32) {
                 Spacer()
 
-                Image("onboarding")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 200)
+                Text("InterNyet")
+                    .font(.system(size: 38, weight: .bold, design: .rounded))
+                    .foregroundColor(.accentColor)
+                    .padding(.vertical, 28)
 
                 onboardingText
                     .multilineTextAlignment(.center)
